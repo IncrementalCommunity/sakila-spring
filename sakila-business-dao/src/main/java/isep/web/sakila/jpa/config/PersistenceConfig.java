@@ -1,10 +1,8 @@
 package isep.web.sakila.jpa.config;
 
-import javax.sql.DataSource;
-
 import org.apache.commons.dbcp.BasicDataSource;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.orm.jpa.EntityScan;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
@@ -12,6 +10,10 @@ import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.vendor.Database;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+
+import javax.sql.DataSource;
+
+//import org.springframework.boot.orm.jpa.EntityScan;
 
 @EnableJpaRepositories(basePackages = {"isep.web.sakila.dao.repositories"})
 @EnableAutoConfiguration
@@ -25,9 +27,9 @@ public class PersistenceConfig {
 	public DataSource dataSource(){
 		BasicDataSource dataSource = new BasicDataSource();
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://localhost:3306/sakila");
-		dataSource.setUsername("zpeng");
-		dataSource.setPassword("zpeng");
+		dataSource.setUrl("jdbc:mysql://127.0.0.1:3306/sakila");
+		dataSource.setUsername("root");
+		dataSource.setPassword("root");
 		
 		return dataSource;
 	}

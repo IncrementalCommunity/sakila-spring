@@ -1,12 +1,12 @@
 package isep.web.sakila;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ConfigurableApplicationContext;
-
 import isep.web.sakila.dao.business.IBusiness;
 import isep.web.sakila.jpa.config.PersistenceConfig;
 import isep.web.sakila.jpa.entities.Actor;
+import isep.web.sakila.jpa.entities.Customer;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 
 @SpringBootApplication
 public class SakilaBusinessDaoApplication {
@@ -25,8 +25,8 @@ public class SakilaBusinessDaoApplication {
 		IBusiness business = context.getBean(IBusiness.class);
 		
 		try{
-			for (Actor actor : business.getAllActors()) {
-				System.out.println(actor.toString());
+			for (Customer customer : business.getAllCustomers()) {
+				System.out.println(customer.toString());
 			}
 			Actor guiness = business.getByID(1);
 			System.out.printf("Who is ID 1 ? %s %s %n", guiness.getLastName(), guiness.getFirstName());
